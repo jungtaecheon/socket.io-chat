@@ -198,6 +198,16 @@ $(function () {
 
   // Keyboard events
 
+  function sendMessageIfExistUsername(username) {
+    if (username) {
+      sendMessage();
+      socket.emit("stop typing");
+      typing = false;
+    } else {
+      setUsername();
+    }
+  }
+
   $window.keydown(function (event) {
     // Auto-focus the current input when a key is typed
     if (!(event.ctrlKey || event.metaKey || event.altKey)) {
@@ -205,14 +215,13 @@ $(function () {
     }
     // When the client hits ENTER on their keyboard
     if (event.which === 13) {
-      if (username) {
-        sendMessage();
-        socket.emit("stop typing");
-        typing = false;
-      } else {
-        setUsername();
-      }
+      sendMessageIfExistUsername(username);
     }
+  });
+
+  $("#inputButton").click(function () {
+    // When the send button is clicked
+    sendMessageIfExistUsername(username);
   });
 
   $inputMessage.on("input", function () {
@@ -237,7 +246,7 @@ $(function () {
   socket.on("login", function (data) {
     connected = true;
     // Display the welcome message
-    var message = "J'VALLE チャット";
+    var message = "J'VALLE チャット デモ";
     log(message, {
       prepend: true,
     });
