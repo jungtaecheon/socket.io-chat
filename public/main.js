@@ -69,7 +69,7 @@ $(function () {
     if (message && connected) {
       $inputMessage.val("");
       addChatMessage({
-        username: username,
+        username: username + " (自分)",
         message: message,
       });
       // tell server to execute 'new message' and send along one parameter
