@@ -1,12 +1,13 @@
-
 # Socket.IO Chat
 
-A simple chat demo to demonstrate WebSockets support on www.evennode.com Node.js hosting platform.
+## Demo
+
+https://socket-io-chat-sample.onrender.com/
 
 ## How to use
 
 ```
-$ cd socket.io-chat-example
+$ cd socket.io-chat
 $ npm install
 $ node app.js
 ```
@@ -17,10 +18,10 @@ a port by supplying the `PORT` env variable.
 ## Features
 
 - Multiple users can join a chat room by entering a unique username
-on website load.
+  on website load.
 - Users can type chat messages to the chat room
 - A notification is sent to all users when a user joins or leaves
-the chatroom
+  the chatroom
 
 ## License
 
